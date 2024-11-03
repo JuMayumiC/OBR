@@ -44,7 +44,10 @@
 #define motorservo5 19
 
 void setup() {
-  //motores
+  // Inicializa a comunicação serial 
+  Serial.begin(9600);
+  
+  // Motores
   pinMode(motor1, OUTPUT);
   pinMode(motor2, OUTPUT);
   pinMode(motor1_inverso, OUTPUT);
@@ -54,7 +57,7 @@ void setup() {
   pinMode(motor3_inverso, OUTPUT);
   pinMode(motor4_inverso, OUTPUT);
   
-  //sensores de linha
+  // Sensores de linha
   pinMode(sensorlinha1, INPUT);
   pinMode(sensorlinhaanalogico1, INPUT);
   pinMode(sensorlinha2, INPUT);
@@ -64,29 +67,30 @@ void setup() {
   pinMode(sensorlinha4, INPUT);
   pinMode(sensorlinhaanalogico4, INPUT);
   
-  //sensores de cor
+  // Sensores de cor
   pinMode(sensorrgb, INPUT);
   pinMode(sensorrgb2, INPUT);
   pinMode(sensorrgb3, INPUT);
   
-  //ultrassonicos
-  pinMode(ultrassonicotrig, INPUT);
+  // Sensores ultrassônicos
+  pinMode(ultrassonicotrig, OUTPUT);  // deve ser OUTPUT para o trigger
   pinMode(ultrassonicoecho, INPUT);
-  pinMode(ultrassonicotrig2, INPUT);
+  pinMode(ultrassonicotrig2, OUTPUT); // deve ser OUTPUT para o trigger
   pinMode(ultrassonicoecho2, INPUT);
-  pinMode(ultrassonicotrig3, INPUT);
+  pinMode(ultrassonicotrig3, OUTPUT); // deve ser OUTPUT para o trigger
   pinMode(ultrassonicoecho3, INPUT);
   
-  //servos
+  // Servos
   pinMode(motorservo, OUTPUT);
   pinMode(motorservo2, OUTPUT);
   pinMode(motorservo3, OUTPUT);
   pinMode(motorservo4, OUTPUT);
   pinMode(motorservo5, OUTPUT);
 
-  //para ele saber a porta do sensor
-  inicializarRadar(int sensorT, int sensorE, int motor)
+  // Inicializa os sensores de radar (substitua os parâmetros pelos valores corretos)
+  inicializarRadar(ultrassonicotrig, ultrassonicoecho, motor1); // Exemplo de parâmetros
 }
+
 
 void loop() {
   seguelinha();
