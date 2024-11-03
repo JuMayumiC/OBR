@@ -241,3 +241,16 @@ long distanciaUltrassonicoLateral2() {
   long duracao = pulseIn(ultrassonicoecho3, HIGH);
   return duracao * 0.034 / 2; // Converte para cm
 }
+
+void verificaVermelho() {
+  const uint16_t LIMITE_VERMELHO = 200; // Defina um limite adequado para a detecção de vermelho
+  
+  // Verifica a presença de vermelho nos sensores
+  bool vermelhoNoSensor1 = corVermelho1() > LIMITE_VERMELHO;
+  bool vermelhoNoSensor2 = corVermelho2() > LIMITE_VERMELHO;
+
+  // Se a cor vermelha for detectada em qualquer sensor
+  if (vermelhoNoSensor1 || vermelhoNoSensor2) {
+    parar(); // Para todas as atividades do robô
+  }
+}
