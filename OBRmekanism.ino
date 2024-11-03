@@ -259,6 +259,6 @@ void verificaVermelho() {
 
   // Se a cor vermelha for detectada em qualquer sensor
   if (vermelhoNoSensor1 || vermelhoNoSensor2) {
-    parar(); // Para todas as atividades do robô
+    stop(); // Para todas as atividades do robô
   }
 }
